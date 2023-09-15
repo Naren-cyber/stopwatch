@@ -1,0 +1,1 @@
+import t from"../../_snowpack/pkg/classnames.js";import n from"../../_snowpack/pkg/react.js";import{useTypedIntl as a}from"../../i18n/core/locale.js";import l from"./style.module.css.proxy.js";export const Skeleton=({width:s,height:e})=>{const o=a();return n.createElement("span",{className:t(l.waving),style:{width:s,height:e}},o("components.skeleton.loading"))};

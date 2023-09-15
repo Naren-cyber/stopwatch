@@ -1,0 +1,1 @@
+import*as t from"../_snowpack/pkg/ramda.js";import{isNullish as o}from"../_snowpack/pkg/taio/build/utils/validator/primitive.js";import{assertThat as i}from"../_snowpack/pkg/taio/build/utils/validator/utils.js";export const isNonNullish=t.compose(t.not,o),assertNonNullish=i(isNonNullish),setStateEffect=t.tap,createCleanUp=s=>()=>s.unsubscribe();

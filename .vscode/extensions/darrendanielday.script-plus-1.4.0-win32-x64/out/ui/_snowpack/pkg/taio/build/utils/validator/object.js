@@ -1,0 +1,1 @@
+import{o}from"../../../../common/object-2d42eed7.js";import"../../../../common/_commonjsHelpers-913f9c4a.js";import"../../../../common/primitive-b19379fd.js";var e=o.isObject,m=o.isObjectLike;export{e as isObject,m as isObjectLike};

@@ -1,0 +1,1 @@
+import{makeStyles as i}from"../../_snowpack/pkg/@material-ui/core.js";export const useStyles=i(o=>({formControl:{margin:o.spacing(1)},tinyFormControl:{margin:o.spacing(1),width:o.spacing(15)},textAreaControl:{width:o.spacing(48)},selectControl:{width:o.spacing(12)}}));

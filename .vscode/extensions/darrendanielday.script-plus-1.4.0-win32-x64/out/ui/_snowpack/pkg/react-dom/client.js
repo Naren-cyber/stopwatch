@@ -1,0 +1,1 @@
+import{c as m}from"../common/_commonjsHelpers-913f9c4a.js";import{r as e}from"../common/index-aff16917.js";import"../common/index-2353a432.js";var t=m(function(r,o){o.createRoot=e.createRoot,o.hydrateRoot=e.hydrateRoot});export default t;

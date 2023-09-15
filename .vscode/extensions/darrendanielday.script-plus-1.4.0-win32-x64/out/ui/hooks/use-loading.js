@@ -1,0 +1,1 @@
+import*as o from"../_snowpack/pkg/ramda.js";import{useState as i}from"../_snowpack/pkg/react.js";export const useLoadingPipe=(t,n)=>{const[s,r]=i(!1),a=o.pipe(t,e=>e.then(n).finally(o.pipe(o.F,r)));return[s,(...e)=>(r(!0),a(...e))]};

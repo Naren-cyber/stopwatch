@@ -1,0 +1,292 @@
+{
+	"name": "script-plus",
+	"displayName": "Script Plus",
+	"description": "A vscode plugin for running JS/TS scripts to call vscode API.",
+	"extensionKind": [
+		"ui"
+	],
+	"keywords": [
+		"javascript",
+		"typescript",
+		"run script",
+		"nodejs",
+		"yarn",
+		"vscode API"
+	],
+	"version": "1.4.0",
+	"author": {
+		"email": "Darren_Daniel_Day@hotmail.com",
+		"name": "Darren Daniel Day",
+		"url": "https://github.com/DarrenDanielDay"
+	},
+	"publisher": "DarrenDanielDay",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/DarrenDanielDay/script-plus"
+	},
+	"engines": {
+		"vscode": "^1.70.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"icon": "assets/logo.png",
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "script-plus.commands.configuration.reset",
+				"title": "%script-plus.commands.configuration.reset%"
+			},
+			{
+				"command": "script-plus.commands.packageManage.installModule",
+				"title": "%script-plus.commands.packageManage.installModule%"
+			},
+			{
+				"command": "script-plus.commands.scriptControl.cleanUp",
+				"title": "%script-plus.commands.scriptControl.cleanUp%"
+			},
+			{
+				"command": "script-plus.commands.scriptControl.cleanUpAllSideEffects",
+				"title": "%script-plus.commands.scriptControl.cleanUpAllSideEffects%"
+			},
+			{
+				"command": "script-plus.commands.scriptControl.create",
+				"title": "%script-plus.commands.scriptControl.create%",
+				"icon": {
+					"dark": "assets/icons/add.svg",
+					"light": "assets/icons/add.svg"
+				}
+			},
+			{
+				"command": "script-plus.commands.scriptControl.delete",
+				"title": "%script-plus.commands.scriptControl.delete%",
+				"icon": {
+					"dark": "assets/icons/delete.svg",
+					"light": "assets/icons/delete.svg"
+				}
+			},
+			{
+				"command": "script-plus.commands.scriptControl.editScript",
+				"title": "%script-plus.commands.scriptControl.editScript%",
+				"icon": {
+					"dark": "assets/icons/edit.svg",
+					"light": "assets/icons/edit.svg"
+				}
+			},
+			{
+				"command": "script-plus.commands.scriptControl.execute",
+				"title": "%script-plus.commands.scriptControl.execute%",
+				"icon": {
+					"dark": "assets/icons/run.svg",
+					"light": "assets/icons/run.svg"
+				}
+			},
+			{
+				"command": "script-plus.commands.scriptControl.executeCurrentScript",
+				"title": "%script-plus.commands.scriptControl.executeCurrentScript%"
+			},
+			{
+				"command": "script-plus.commands.scriptControl.forceCheckUserScriptsFolder",
+				"title": "%script-plus.commands.scriptControl.forceCheckUserScriptsFolder%"
+			},
+			{
+				"command": "script-plus.commands.scriptControl.openUserScriptsFolder",
+				"title": "%script-plus.commands.scriptControl.openUserScriptsFolder%"
+			},
+			{
+				"command": "script-plus.commands.treeViewControl.refresh",
+				"title": "%script-plus.commands.treeViewControl.refresh%",
+				"icon": {
+					"dark": "assets/icons/refresh.svg",
+					"light": "assets/icons/refresh.svg"
+				}
+			},
+			{
+				"command": "script-plus.commands.webviewControl.close",
+				"title": "%script-plus.commands.webviewControl.close%"
+			},
+			{
+				"command": "script-plus.commands.webviewControl.open",
+				"title": "%script-plus.commands.webviewControl.open%",
+				"icon": {
+					"dark": "assets/icons/launch.svg",
+					"light": "assets/icons/launch.svg"
+				}
+			},
+			{
+				"command": "script-plus.commands.webviewControl.reload",
+				"title": "%script-plus.commands.webviewControl.reload%"
+			}
+		],
+		"configuration": {
+			"title": "Script Plus",
+			"properties": {
+				"script-plus.configs.node.packageManager": {
+					"description": "%script-plus.configs.node.packageManager%",
+					"type": "string",
+					"enum": [
+						"npm",
+						"yarn"
+					],
+					"default": "yarn"
+				},
+				"script-plus.configs.packages.dependencyStrategy": {
+					"description": "%script-plus.configs.packages.dependencyStrategy%",
+					"type": "string",
+					"enum": [
+						"always latest",
+						"local installed"
+					],
+					"default": "always latest"
+				},
+				"script-plus.configs.packages.installPosition": {
+					"description": "%script-plus.configs.packages.installPosition%",
+					"type": "string",
+					"enum": [
+						"local",
+						"global"
+					],
+					"default": "local"
+				},
+				"script-plus.configs.packages.installTypes": {
+					"description": "%script-plus.configs.packages.installTypes%",
+					"type": "boolean",
+					"default": true
+				},
+				"script-plus.configs.packages.includePrerelease": {
+					"description": "%script-plus.configs.packages.includePrerelease%",
+					"type": "boolean",
+					"default": false
+				},
+				"script-plus.configs.script.transformer": {
+					"description": "%script-plus.configs.script.transformer%",
+					"type": "string",
+					"enum": [
+						"esbuild",
+						"babel"
+					],
+					"default": "esbuild"
+				},
+				"script-plus.configs.startUp.autoCheck": {
+					"description": "%script-plus.configs.startUp.autoCheck%",
+					"type": "boolean",
+					"default": true
+				},
+				"script-plus.configs.startUp.autoScripts": {
+					"description": "%script-plus.configs.startUp.autoScripts%",
+					"type": "array",
+					"default": [],
+					"markdownDescription": "Expecting an array of object with the following shape:\n\n```ts\ninterface AutoRunOptions {\n  /**\n   * The user script name.\n   */\n  script: string;\n  /**\n   * Falsy value like `null` or empty string, or not provided, means the default parameter.\n   * String value means the `preset` name.\n   * Object value means the parameter instance.\n   */\n  parameter: string | object | null;\n}\n```\n\nSince it's not a simple array, currently `vscode` does not support to edit it directly in the settings UI. \n\nYou can edit it in `settings.json` or add one at the \"run script\" page in [webview panel](command:script-plus.commands.webviewControl.open).\n\nCurrently the webview panel does not support to remove auto scripts.\n",
+					"items": {
+						"type": "object",
+						"properties": {
+							"script": {
+								"description": "The user script name.",
+								"title": "The user script name.",
+								"type": "string"
+							},
+							"parameter": {
+								"anyOf": [
+									{
+										"type": "string"
+									},
+									{
+										"type": "object"
+									},
+									{
+										"type": "null"
+									}
+								],
+								"description": "Falsy value like `null` or empty string, or not provided, means the default parameter.\n\nString value means the `preset` name.\n\nObject value means the parameter instance.\n                        ",
+								"title": "The parameter to run script."
+							}
+						},
+						"required": [
+							"script"
+						]
+					}
+				},
+				"script-plus.configs.startUp.warnLocale": {
+					"description": "%script-plus.configs.startUp.warnLocale%",
+					"type": "boolean",
+					"default": true
+				},
+				"script-plus.configs.startUp.checkExtensionDependencies": {
+					"description": "%script-plus.configs.startUp.checkExtensionDependencies%",
+					"type": "boolean",
+					"default": false
+				}
+			}
+		},
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "script-plus",
+					"title": "Script Plus",
+					"icon": "assets/icon.svg"
+				}
+			]
+		},
+		"views": {
+			"script-plus": [
+				{
+					"id": "script-plus.view.startup",
+					"name": "Start Here"
+				}
+			]
+		},
+		"menus": {
+			"view/item/context": [
+				{
+					"command": "script-plus.commands.scriptControl.editScript",
+					"group": "inline",
+					"when": "view == script-plus.view.startup"
+				},
+				{
+					"command": "script-plus.commands.scriptControl.delete",
+					"group": "inline",
+					"when": "view == script-plus.view.startup"
+				},
+				{
+					"command": "script-plus.commands.scriptControl.execute",
+					"group": "inline",
+					"when": "view == script-plus.view.startup"
+				}
+			],
+			"view/title": [
+				{
+					"command": "script-plus.commands.treeViewControl.refresh",
+					"group": "navigation",
+					"when": "view == script-plus.view.startup"
+				},
+				{
+					"command": "script-plus.commands.scriptControl.create",
+					"group": "navigation",
+					"when": "view == script-plus.view.startup"
+				},
+				{
+					"command": "script-plus.commands.webviewControl.open",
+					"group": "navigation",
+					"when": "view == script-plus.view.startup"
+				}
+			]
+		}
+	},
+	"dependencies": {
+		"esbuild": "^0.15.14"
+	},
+	"__metadata": {
+		"id": "8d6ebed7-2368-4dcf-8841-4fee47482bf4",
+		"publisherId": "ba6b24af-5618-4d3e-8b53-252ab6f3e038",
+		"publisherDisplayName": "Darren Daniel Day",
+		"targetPlatform": "win32-x64",
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1687255381919,
+		"preRelease": false
+	}
+}

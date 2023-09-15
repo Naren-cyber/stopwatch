@@ -1,0 +1,24 @@
+{
+  "imports": {
+    "@material-ui/core": "./@material-ui/core.js",
+    "@material-ui/icons": "./@material-ui/icons.js",
+    "classnames": "./classnames.js",
+    "ramda": "./ramda.js",
+    "react": "./react.js",
+    "react-dom/client": "./react-dom/client.js",
+    "react-intl": "./react-intl.js",
+    "react-swipeable-views": "./react-swipeable-views.js",
+    "rxjs": "./rxjs.js",
+    "taio/build/libs/custom/functions/identity": "./taio/build/libs/custom/functions/identity.js",
+    "taio/build/libs/typescript/object": "./taio/build/libs/typescript/object.js",
+    "taio/build/libs/typescript/reflect": "./taio/build/libs/typescript/reflect.js",
+    "taio/build/utils/enum": "./taio/build/utils/enum.js",
+    "taio/build/utils/internal/exceptions": "./taio/build/utils/internal/exceptions.js",
+    "taio/build/utils/typed-function": "./taio/build/utils/typed-function.js",
+    "taio/build/utils/validator/array": "./taio/build/utils/validator/array.js",
+    "taio/build/utils/validator/enum": "./taio/build/utils/validator/enum.js",
+    "taio/build/utils/validator/object": "./taio/build/utils/validator/object.js",
+    "taio/build/utils/validator/primitive": "./taio/build/utils/validator/primitive.js",
+    "taio/build/utils/validator/utils": "./taio/build/utils/validator/utils.js"
+  }
+}
